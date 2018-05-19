@@ -22,55 +22,31 @@
           </div>   
           <div class="line text-center">
             <div class="margin">
+              <?php
+                $i = 1;
+
+                foreach($posts as $post) : 
+                 if(($i-1) % 3   == 0){
+                    echo "<div class='row'><br>&nbsp;</div> ";
+                  }  
+                  
+              ?>
               <div class="s-12 m-12 l-4 margin-m-bottom">
                 <div class="padding-2x background-primary">
-                  <i class="icon-sli-shield icon3x text-white margin-bottom-30"></i>
-                  <h2 class="text-thin">Unlimited Color Variants</h2>
-                  <p class="margin-bottom-30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis</p>
-                  <a class="button button-white-stroke text-size-12" href="<?php echo base_url(); ?>/">GET MORE INFO</a>
+                  <?php if($post['image'] != null){ ?>
+                    <img src="<?php echo site_url(); ?>assets/posts/<?php echo $post['image']; ?>" width="12px">
+                  <?php } ?>
+                  <h2 class="text-thin"><?php echo $post['title']; ?></h2>
+                  <p class="margin-bottom-30"><?php echo word_limiter($post['body'],10); ?></p>
+                  <a class="button button-white-stroke text-size-12" href="<?php echo site_url('/posts/view/'.$post['slug']); ?>/">GET MORE INFO</a>
                 </div>
               </div>
-              <div class="s-12 m-12 l-4 margin-m-bottom">
-                <div class="padding-2x background-primary">
-                  <i class="icon-sli-umbrella icon3x text-white margin-bottom-30"></i>
-                  <h2 class="text-thin">Parallax Background</h2>
-                  <p class="margin-bottom-30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis</p>
-                  <a class="button button-white-stroke text-size-12" href="<?php echo base_url(); ?>/">GET MORE INFO</a>
-                </div>
-              </div>
-              <div class="s-12 m-12 l-4 margin-m-bottom">
-                <div class="padding-2x background-primary">
-                  <i class="icon-sli-home icon3x text-white margin-bottom-30"></i>
-                  <h2 class="text-thin">Clean Modern Code</h2>
-                  <p class="margin-bottom-30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis</p>
-                  <a class="button button-white-stroke text-size-12" href="<?php echo base_url(); ?>/">GET MORE INFO</a>
-                </div>
-				<br>
-              </div>
-			  <div class="s-12 m-12 l-4 margin-m-bottom">
-                <div class="padding-2x background-primary">
-                  <i class="icon-sli-shield icon3x text-white margin-bottom-30"></i>
-                  <h2 class="text-thin">Unlimited Color Variants</h2>
-                  <p class="margin-bottom-30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis</p>
-                  <a class="button button-white-stroke text-size-12" href="<?php echo base_url(); ?>/">GET MORE INFO</a>
-                </div>
-              </div>
-              <div class="s-12 m-12 l-4 margin-m-bottom">
-                <div class="padding-2x background-primary">
-                  <i class="icon-sli-umbrella icon3x text-white margin-bottom-30"></i>
-                  <h2 class="text-thin">Parallax Background</h2>
-                  <p class="margin-bottom-30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis</p>
-                  <a class="button button-white-stroke text-size-12" href="<?php echo base_url(); ?>/">GET MORE INFO</a>
-                </div>
-              </div>
-              <div class="s-12 m-12 l-4 margin-m-bottom">
-                <div class="padding-2x background-primary">
-                  <i class="icon-sli-home icon3x text-white margin-bottom-30"></i>
-                  <h2 class="text-thin">Clean Modern Code</h2>
-                  <p class="margin-bottom-30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis</p>
-                  <a class="button button-white-stroke text-size-12" href="<?php echo base_url(); ?>/">GET MORE INFO</a>
-                </div>
-              </div>
+              <?php 
+                $i++;
+               
+                endforeach;
+                 
+              ?>      
             </div>
           </div>
         </section> 
@@ -88,7 +64,7 @@
       <section class="background-dark full-width">
         <!-- Map -->
         <div class="s-12 m-12 l-6 margin-m-bottom-2x">
-          <div class="s-12 grayscale center">  	  
+          <div class="s-12 grayscale center">     
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1459734.5702753505!2d16.91089086619977!3d48.577103681657675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ssk!2ssk!4v1457640551761" width="100%" height="450" frameborder="0" style="border:0"></iframe>
           </div>
         </div>
